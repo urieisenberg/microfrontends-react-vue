@@ -18,6 +18,7 @@ const devConfig = {
       exposes: {
         './MarketingApp': './src/bootstrap',
       },
+      shared: ['react', 'react-dom'], //shared dependencies with container app (host) to avoid duplication of code in the browser (bundle size) and to avoid version conflicts 
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',

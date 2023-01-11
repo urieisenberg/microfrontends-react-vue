@@ -17,6 +17,7 @@ const devConfig = {
       remotes: {
         marketing: 'marketing@http://localhost:8081/remoteEntry.js', //the word marketing to match the name in marketing webpack config
       },
+      shared: ['react', 'react-dom'], //shared dependencies with container app (host) to avoid duplication of code in the browser (bundle size) and to avoid version conflicts
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
