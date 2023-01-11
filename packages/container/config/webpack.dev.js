@@ -2,6 +2,7 @@ const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const commonConfig = require('./webpack.common');
+const packageJson = require('../package.json');
 
 const devConfig = {
   mode: 'development',
@@ -17,7 +18,8 @@ const devConfig = {
       remotes: {
         marketing: 'marketing@http://localhost:8081/remoteEntry.js', //the word marketing to match the name in marketing webpack config
       },
-      shared: ['react', 'react-dom'], //shared dependencies with container app (host) to avoid duplication of code in the browser (bundle size) and to avoid version conflicts
+      shared: packageJson.dependencies,
+      //shared dependencies with container app (host) to avoid duplication of code in the browser (bundle size) and to avoid version conflicts
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
