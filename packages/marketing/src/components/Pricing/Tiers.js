@@ -1,4 +1,4 @@
-const tiers = [
+export const tiers = [
     {
       title: 'Free',
       price: '0',
