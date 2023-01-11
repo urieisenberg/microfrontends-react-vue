@@ -15,3 +15,4 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 //otherwise, run through container and export the mount function
+export { mount };
