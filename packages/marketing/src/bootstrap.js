@@ -4,11 +4,15 @@ import { createMemoryHistory, createBrowserHistory } from 'history';
 import App from './App';
 
 //mount function to start up the app
-const mount = (el, { onNavigate, defaultHistory }) => {
-  const history = defaultHistory || createMemoryHistory(); //if no defautlHistory, then create a memory history object  to use in the app  (instead of browser history)
- 
+const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
+  const history =
+    defaultHistory ||
+    createMemoryHistory({
+      initialEntries: [initialPath],
+    }); //if defaultHistory is passed in, use it,  therwise create a memory history object with the initial path
+
   if (onNavigate) history.listen(onNavigate); //if onNavigate is passed in, listen for changes in the history object and call onNavigate  (this is passed in from the container)
- 
+
   ReactDOM.render(<App history={history} />, el);
 
   return {
@@ -24,9 +28,8 @@ const mount = (el, { onNavigate, defaultHistory }) => {
 
 //if we are in development and in isolation, call mount immediately
 if (process.env.NODE_ENV === 'development') {
- 
   const devRoot = document.querySelector('#_marketing-dev-root');
- 
+
   if (devRoot) {
     mount(devRoot, {
       defaultHistory: createBrowserHistory(), //use browser history in development  (instead of memory history)
