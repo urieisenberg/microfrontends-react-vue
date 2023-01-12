@@ -10,8 +10,12 @@ const mount = (el, { onNavigate }) => {
   ReactDOM.render(<App history={history} />, el);
 
   return {
-    onParentNavigate() {
-      console.log('container just navigated');
+    onParentNavigate({ pathname: nextPathname }) { //function to be called by the container when the history object changes
+      const { pathname } = history.location;
+      if (pathname !== nextPathname) {
+        history
+          .push(nextPathname) //push the next pathname to the history object if it is different from the current pathname
+      }
     },
   };
 };
