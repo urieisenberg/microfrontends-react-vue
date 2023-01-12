@@ -17,7 +17,7 @@ export default ({ onSignIn }) => {
       },
       onSignIn //pass the onSignIn function to the Auth app
     });
-
+    
     history.listen(onParentNavigate); //listen for changes in the history object and call onParentNavigate  (this is passed in from the Auth app)
   });
 
