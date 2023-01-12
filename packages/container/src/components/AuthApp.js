@@ -15,6 +15,9 @@ export default () => {
           history.push(nextPathname); //push the next pathname to the history object if it is different from the current pathname
         }
       },
+      onSignIn: () => {
+        console.log('User is signed in');
+      },
     });
 
     history.listen(onParentNavigate); //listen for changes in the history object and call onParentNavigate  (this is passed in from the Auth app)
