@@ -4,8 +4,9 @@ import { createMemoryHistory } from 'history';
 import App from './App';
 
 //mount function to start up the app
-const mount = (el) => {
+const mount = (el, { onNavigate }) => {
   const history = createMemoryHistory(); //create a memory history object  to use in the app  (instead of browser history)
+  history.listen(onNavigate); //if onNavigate is passed in, listen for changes in the history object and call onNavigate  (this is passed in from the container)
   ReactDOM.render(<App history={history} />, el);
 };
 
