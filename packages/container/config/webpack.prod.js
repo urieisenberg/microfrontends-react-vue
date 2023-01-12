@@ -17,10 +17,11 @@ const prodConfig = {
       remotes: {
         marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`,
         auth: `auth@${domain}/auth/latest/remoteEntry.js`,
+        dashboard: `dashboard@${domain}/dashboard/latest/remoteEntry.js`,
       },
       shared: packageJson.dependencies,
     }),
   ],
 };
 
-module.exports = merge(commonConfig, prodConfig);  // Merge commonConfig with prodConfig, the second argument overrides the first
+module.exports = merge(commonConfig, prodConfig); // Merge commonConfig with prodConfig, the second argument overrides the first
