@@ -16,11 +16,13 @@ const generateClassName = createGenerateClassName({
   productionPrefix: 'co',
 });
 
+const history = createBrowserHistory(); //create a history object to pass to the Router
+
 export default () => {
   const [isSignedIn, setIsSignedIn] = useState(false); //add state to the container app to track whether the user is signed in and pass it down
 
   return (
-    <BrowserRouter>
+    <Router history={history}>
       <StylesProvider generateClassName={generateClassName}>
         <Header
           onSignOut={() => setIsSignedIn(false)}
@@ -36,6 +38,6 @@ export default () => {
           </Switch>
         </Suspense>
       </StylesProvider>
-    </BrowserRouter>
+    </Router>
   );
 };
