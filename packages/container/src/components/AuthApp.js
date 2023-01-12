@@ -2,7 +2,7 @@ import { mount } from 'auth/AuthApp';
 import React, { useRef, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
-export default () => {
+export default ({ onSignIn }) => {
   const ref = useRef(null);
   const history = useHistory();
 
@@ -15,9 +15,7 @@ export default () => {
           history.push(nextPathname); //push the next pathname to the history object if it is different from the current pathname
         }
       },
-      onSignIn: () => {
-        console.log('User is signed in');
-      },
+      onSignIn //pass the onSignIn function to the Auth app
     });
 
     history.listen(onParentNavigate); //listen for changes in the history object and call onParentNavigate  (this is passed in from the Auth app)
