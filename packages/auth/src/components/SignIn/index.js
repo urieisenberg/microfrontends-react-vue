@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 import { useStyles } from './Styles';
 import { Copyright } from './Copyright';
 
-export default function SignIn() {
+export default function SignIn({ onSignIn }) {
   const classes = useStyles();
 
   return (
