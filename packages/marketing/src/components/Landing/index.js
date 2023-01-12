@@ -10,7 +10,7 @@ import Container from '@material-ui/core/Container';
 import { Link } from 'react-router-dom';
 import { Copyright } from './Copyright';
 import { useStyles } from './Styles';
-import { cards } from './Cards';
+import { cards } from './ cards';
 
 export default function Album() {
   const classes = useStyles();
