@@ -6,25 +6,21 @@ module.exports = {
     filename: '[name].[contenthash].js',
   },
   resolve: {
-    extensions: ['.js', '.vue'], // Resolve .js and .vue files
+    extensions: ['.js', '.vue'],
   },
   module: {
     rules: [
       {
         test: /\.(png|jpe?g|gif|woff|svg|eot|ttf)$/i,
-        use: [
-          {
-            loader: 'file-loader', // Use file-loader to load images and fonts
-          },
-        ],
+        use: [{ loader: 'file-loader' }],
       },
       {
         test: /\.vue$/,
-        use: 'vue-loader', // Use vue-loader to load .vue files
+        use: 'vue-loader',
       },
       {
         test: /\.scss|\.css$/,
-        use: ['vue-style-loader', 'style-loader', 'css-loader', 'sass-loader'], // Use vue-style-loader, style-loader, css-loader and sass-loader to load .scss and .css files
+        use: ['vue-style-loader', 'style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.m?js$/,
