@@ -39,9 +39,9 @@ export default function Album() {
               {/* Something short and leading about the collection below—its
               contents, the creator, etc. Make it short and sweet, but not too
               short so folks don&apos;t simply skip over it entirely. */}
-
-                This is a home page for the marketing app.  It is a simple landing page with a few cards and a button to the pricing page.  
-                It is built using Material UI and React.  
+              This is a home page for the marketing app. It is a simple landing
+              page with a few cards and a button to the pricing page. It is
+              built using Material UI and React.
             </Typography>
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
@@ -108,7 +108,7 @@ export default function Album() {
           color="textSecondary"
           component="p"
         >
-            this is a footer
+          this is a footer
         </Typography>
         <Copyright />
       </footer>
