@@ -21,6 +21,12 @@ const history = createBrowserHistory(); //create a history object to pass to the
 export default () => {
   const [isSignedIn, setIsSignedIn] = useState(false); //add state to the container app to track whether the user is signed in and pass it down
 
+  useEffect(() => {
+    if (isSignedIn) {
+      history.push('/dashboard');
+    }
+  }, [isSignedIn]);
+
   return (
     <Router history={history}>
       <StylesProvider generateClassName={generateClassName}>
@@ -33,7 +39,10 @@ export default () => {
             <Route path="/auth">
               <AuthLazy onSignIn={() => setIsSignedIn(true)} />
             </Route>
-            <Route path="/dashboard" component={DashboardLazy} />
+            <Route path="/dashboard">
+              {!isSignedIn && <Redirect to="/" />}
+              <DashboardLazy />
+            </Route>
             <Route path="/" component={MarketingLazy} />
           </Switch>
         </Suspense>
