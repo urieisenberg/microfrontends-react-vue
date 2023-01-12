@@ -6,6 +6,9 @@ const packageJson = require('../package.json');
 
 const devConfig = {
   mode: 'development',
+  output: {
+    publicPath: 'http://localhost:8082/', 
+  },
   devServer: {
     port: 8082,
     historyApiFallback: true,
@@ -17,7 +20,7 @@ const devConfig = {
       exposes: {
         './AuthApp': './src/bootstrap',
       },
-      shared: packageJson.dependencies
+      shared: packageJson.dependencies,
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
